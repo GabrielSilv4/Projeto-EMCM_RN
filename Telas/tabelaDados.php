@@ -22,7 +22,7 @@ function montarResultado(){
             echo "<td>". $valores["valor"].  "</td>";
             echo "<td>". $valores["convenio"].  "</td>";
             echo "<td>". $valores["grupo_material"].  "</td>";
-            echo "<td>". date('d/m/Y', strtotime($valores["data"])).  "</td>";
+            echo "<td>". date('Y/m/d', strtotime($valores["data"])).  "</td>";
         echo "</tr>";   
        }
 }
@@ -41,7 +41,7 @@ function montarResultadoStatus($stats){
             echo "<td>". $valores["valor"].  "</td>";
             echo "<td>". $valores["convenio"].  "</td>";
             echo "<td>". $valores["grupo_material"].  "</td>";
-            echo "<td>". date('d/m/Y', strtotime($valores["data"])).  "</td>";
+            echo "<td>". date('Y/m/d', strtotime($valores["data"])).  "</td>";
         echo "</tr>";   
        }   
        
@@ -63,7 +63,7 @@ function montarResultadoNumReq($numreq){
             echo "<td>". $valores["valor"].  "</td>";
             echo "<td>". $valores["convenio"].  "</td>";
             echo "<td>". $valores["grupo_material"].  "</td>";
-            echo "<td>". date('d/m/Y', strtotime($valores["data"])).  "</td>";
+            echo "<td>". date('Y/m/d', strtotime($valores["data"])).  "</td>";
         echo "</tr>";   
        }   
        

@@ -18,9 +18,9 @@ function conexao(){
         return $conn;
     }
 }
+/*
 
-
-function logar($login, $senha){
+function logando($login, $senha){
  
     $conn = conexao();
     //Iniciando sessão
@@ -78,4 +78,5 @@ function sair() {
     session_destroy();
 header('Location: ../');
 
-}
+}*/
+?>

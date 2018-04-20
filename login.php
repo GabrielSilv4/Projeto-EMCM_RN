@@ -1,7 +1,5 @@
 <?php
-
-
-include 'conexaoBD.php';
+require_once 'conexaoBD.php';
  
 function logar($login,$senha){
   //session_cache_expire(10);
@@ -12,7 +10,7 @@ function logar($login,$senha){
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0){
-       echo "<script type='text/javascript'>location.href ='./principal.php'</script>";
+       echo "<script type='text/javascript'>location.href ='./novaTabela.php'</script>";
     }
     
     else{
@@ -20,7 +18,6 @@ function logar($login,$senha){
     }
             
 }
-
 
 /* Função para verificar se está Logado 
 function verificar_LOG() {
@@ -40,17 +37,15 @@ function verificar_LOG() {
 
         header('location:./TelaLogin.php');
     }
-
-
    
 }
- */
+ 
  
 function logout_LOG() {
     // Destruir a sessão
     session_destroy();
 }
-
+*/
 ?>
 
 
