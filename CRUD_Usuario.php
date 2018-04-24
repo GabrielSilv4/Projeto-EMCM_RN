@@ -42,7 +42,7 @@ function editarUsuario($login, $nome,  $id) {
     $conn->close();
 }
 
-
+// Listar os Usuários
 function listarUsuarios(){
     $conn = conexao();
     

@@ -1,5 +1,9 @@
 <?php
+
 require_once '../nbproject_1/pegarDados_ReqMaterias.php';
+require_once '../login.php';
+
+isLogado();
 $stats = "";
 $numreq = "";
 
@@ -70,11 +74,7 @@ function montarResultadoNumReq($numreq) {
 }
 ?> 
 
-<script>
 
-
-
-</script>
 <html>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -106,7 +106,7 @@ function montarResultadoNumReq($numreq) {
         -->    
     </form>
     <h2>Requisições de Materiais</h2>
-
+    
     <button onclick="pesquisa();"> Pesquisa </button>
 
     <table id="myTable" class="tablesorter">

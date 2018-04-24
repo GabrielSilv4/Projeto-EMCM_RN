@@ -21,12 +21,10 @@
          
    <?php 
    
-   
    require_once '../login.php';
+   
    if(isset($_POST["botao"])){
        logar($_POST["login"],$_POST["senha"]);
-       echo "LOGIN FUNCIONANDO";
-//echo "<script type='text/javascript'>location.href ='../redirecionamento.php'</script>";
     }
    ?>
 
