@@ -90,7 +90,7 @@ function montarResultadoNumProcesso($processo) {
     
     <button onclick="pesquisa();"> Pesquisa </button>
 
-    <table id="myTable" class="tablesorter">
+    <table id="myTable" class="tablesorter" witdh="100%" >
         <thead>
             <tr >
                 <th>Cód. Empenho</th>
