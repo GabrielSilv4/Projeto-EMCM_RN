@@ -146,7 +146,8 @@ function montarResultadoNumProcesso($processo) {
                 + "<th><input type='text' id='txtColuna5'/></th>"
                 + "<th><input type='text' id='txtColuna6'/></th>"
                 + "<th><input type='text' id='txtColuna7'/></th>";
-
+                + "<th><input type='text' id='txtColuna8'/></th>";
+                + "<th><input type='text' id='txtColuna9'/></th>";
 
         $(function () {
             $("#myTable input").keyup(function () {
