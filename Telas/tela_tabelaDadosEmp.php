@@ -1,31 +1,33 @@
 <?php
 
-require_once '../nbproject_1/pegarDados_ReqMaterias.php';
+require_once '../nbproject_1/pegarDados_Empenhos.php';
 require_once '../login.php';
 
 isLogado();
 $stats = "";
-$numreq = "";
+$processo = "";
 
-if (isset($_GET["FiltroStatus"], $_GET["num_req"])) {
+if (isset($_GET["FiltroStatus"], $_GET["processo"])) {
     //Captura o Dados via GET, Status e Numero de Requisição respectivamente
     $stats = $_GET["FiltroStatus"];
-    $numreq = $_GET["num_req"];
+    $processo = $_GET["processo"];
 }
 
 function montarResultado() {
-    $dados = getDadosReqMat();
+    $dados = getDadosEmp();
     // Percorre o arquivos de dados do arquivos 
     foreach ($dados["result"]["records"] as $valores) {
         //Monta a tabela
         echo "<tr>";
-        echo "<td>" . $valores["requisicao"] . "</td>";
-        echo "<td>" . $valores["status"] . "</td>";
-        echo "<td>" . $valores["tipo_requisicao"] . "</td>";
-        echo "<td>" . $valores["unidade_requisitante"] . "</td>";
-        echo "<td>" . $valores["valor"] . "</td>";
-        // echo "<td>". $valores["convenio"].  "</td>";
-        echo "<td>" . $valores["grupo_material"] . "</td>";
+        echo "<td>" . $valores["cod_empenho"] . "</td>";
+        echo "<td>" . $valores["ano"] . "</td>";
+        echo "<td>" . $valores["processo"] . "</td>";
+        echo "<td>" . $valores["natureza_despesa"] . "</td>";
+        echo "<td>" . $valores["valor_empenho"] . "</td>";
+        echo "<td>" . $valores["saldo_empenho"] . "</td>";
+        echo "<td>" . $valores["valor_cancelado"] . "</td>";
+        echo "<td>" . $valores["credor"] . "</td>";
+      
         echo "<td>" . date('Y/m/d', strtotime($valores["data"])) . "</td>";
         echo "</tr>";
     }
@@ -52,7 +54,7 @@ function montarResultadoStatus($stats) {
     $stats = "";
 }
 
-function montarResultadoNumReq($numreq) {
+function montarResultadoNumProcesso($processo) {
     $dados = getDadosReqMat();
     // Percorre o arquivos de dados do arquivos 
     foreach ($dados["result"]["records"] as $valores) {
@@ -81,45 +83,25 @@ function montarResultadoNumReq($numreq) {
     <script type="text/javascript" src="../Javascript/jquery-latest.js"></script> 
     <script type="text/javascript" src="../Javascript/jquery.tablesorter.js"></script>
 
-
-
     <body>
-        <!--
-        <form method="GET">
-        <label>Status: </label>
-            <select name="FiltroStatus">
-                <option value="" selected> </option>
-                <option value="CADASTRADA">CADASTRADA</option>
-                <option value="COMPRA">COMPRA</option>
-                <option value="ENVIADA">ENVIADA</option>
-                <option value="EM_LIQUIDACAO" >EM LIQUIDAÇÃO</option>
-                <option value="ESTORNADA">ESTORNADA</option>
-                <option value="FINALIZADA">FINALIZADA</option>
-                <option value="FINALIZADA_ATENDIMENTO">FINALIZADA ATENDIMENTO</option>
-                <option value="LIQUIDADA_PARCIALMENTE">LIQUIDADA PARCIALMENTE</option>
-                <option value="PENDENTE AUTORIZAÇÃO">PENDENTE AUTORIZAÇÃO</option>
-                <option value="PENDENTE DE AUTORIZAÇÃO DE SALDO">PENDENTE AUTORIZAÇÃO DE SALDO</option>   
-            </select> <br>
-        <label>Nº Requisição: </label>
-        <input type="text" name="num_req"><br>
-        <input type="submit" value="Filtrar" name="Filtro_Status"> <br> 
-        -->    
+       
     </form>
-    <h2>Requisições de Materiais</h2>
+    <h2>Empenhos </h2>
     
     <button onclick="pesquisa();"> Pesquisa </button>
 
     <table id="myTable" class="tablesorter">
         <thead>
             <tr >
-                <th>Nº Requisição</th>
-                <th>Status</th>
-                <th>Tipo de Requisição</th> 
-                <th>Unidade Requisitante</th>
-                <th>Valor</th>
-               <!-- <th>Convênio</th> -->
-                <th>Grupo Material</th>
-                <th>Data </th>
+                <th>Cód. Empenho</th>
+                <th>Ano</th>
+                <th>Processo</th> 
+                <th>Natureza Despesa</th>
+                <th>Valor Empenho</th>
+                <th>Saldo Empenho</th>
+                <th>Valor Cancelado</th>
+                <th>Credor</th>
+                <th>Data</th>
             </tr>
             <tr id="linha">
 
@@ -127,13 +109,13 @@ function montarResultadoNumReq($numreq) {
         </thead>
         <tbody>
             <?php
-            if (($stats == "") && ($numreq == "")) {
+            if (($stats == "") && ($processo == "")) {
                 montarResultado();
-            } elseif (($stats != "") && ($numreq == "")) {
+            } /*elseif (($stats != "") && ($processo == "")) {
                 montarResultadoStatus($stats);
-            } elseif (($stats == "") && ($numreq != "")) {
+            } elseif (($stats == "") && ($$processo != "")) {
                 montarResultadoNumReq($numreq);
-            }
+            }*/
             ?>
         </tbody>
     </table><br><br>   
@@ -188,4 +170,6 @@ function montarResultadoNumReq($numreq) {
 
 
 </html>
+
+
 
