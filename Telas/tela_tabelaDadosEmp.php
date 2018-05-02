@@ -90,6 +90,7 @@ function montarResultadoNumProcesso($processo) {
     
     <button onclick="pesquisa();"> Pesquisa </button>
 
+<<<<<<< HEAD
     <table id="myTable" class="tablesorter" witdh="100%" >
         <thead>
             <tr >
@@ -148,6 +149,65 @@ function montarResultadoNumProcesso($processo) {
                 + "<th><input type='text' id='txtColuna7'/></th>";
                 + "<th><input type='text' id='txtColuna8'/></th>";
                 + "<th><input type='text' id='txtColuna9'/></th>";
+=======
+    <table id="myTable" class="tablesorter">
+        <thead>
+            <tr >
+                <th>Cód. Empenho</th>
+                <th>Ano</th>
+                <th>Processo</th> 
+                <th>Natureza Despesa</th>
+                <th>Valor Empenho</th>
+                <th>Saldo Empenho</th>
+                <th>Valor Cancelado</th>
+                <th>Credor</th>
+                <th>Data</th>
+            </tr>
+            <tr id="linha">
+
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (($stats == "") && ($processo == "")) {
+                montarResultado();
+            } /*elseif (($stats != "") && ($processo == "")) {
+                montarResultadoStatus($stats);
+            } elseif (($stats == "") && ($$processo != "")) {
+                montarResultadoNumReq($numreq);
+            }*/
+            ?>
+        </tbody>
+    </table><br><br>   
+</body>
+
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $("#myTable").tablesorter();
+    }
+    );
+
+    $(document).ready(function () {
+        $("#myTable").tablesorter(sortInitialOrder);
+    }
+    );
+
+
+    function pesquisa() {
+        document.getElementById("linha").innerHTML =
+                  "<th><input type='text' id='txtColuna1'/></th>"
+                + "<th><input type='text' id='txtColuna2'/></th>"
+                + "<th><input type='text' id='txtColuna3'/></th>"
+                + "<th><input type='text' id='txtColuna4'/></th>"
+                + "<th><input type='text' id='txtColuna5'/></th>"
+                + "<th><input type='text' id='txtColuna6'/></th>"
+                + "<th><input type='text' id='txtColuna7'/></th>";
+
+>>>>>>> origin/master
 
         $(function () {
             $("#myTable input").keyup(function () {
