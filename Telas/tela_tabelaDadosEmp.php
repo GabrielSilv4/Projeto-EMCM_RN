@@ -35,9 +35,8 @@ function montarResultado() {
 
     </form>
     <h2>Empenhos</h2>
-
+    <!-- Botão responsável por pesquisar cada campo da tabela -->
     <button onclick="pesquisa();">Pesquisa</button>
-
 
     <table id="myTable" class="tablesorter" witdh="100%" >
         <thead>

@@ -35,6 +35,7 @@ function montarResultado() {
     <h2>Requisições de Materiais</h2>
    
     <button onclick="pesquisa();"> Pesquisa </button>
+    <!-- <button position="left" onclick="<logout()"> Sair </button> --> 
     <table id="myTable" class="tablesorter">
         <thead>
             <tr id="linha">
