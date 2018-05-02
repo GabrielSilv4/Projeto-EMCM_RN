@@ -11,7 +11,7 @@ function logar($login, $senha) {
 
     if ($result->num_rows > 0) { 
         $_SESSION['login'] = $login;
-        echo "<script type='text/javascript'>location.href ='../Telas/tela_tabelaDados.php'</script>";
+        echo "<script type='text/javascript'>location.href ='../Telas/tela_tabelaDadosReq.php'</script>";
     } else {
         echo "<script> alert('Login ou senha inválido')</script>";
     }
@@ -24,9 +24,8 @@ function isLogado(){
     session_start();
     // Verifica se existe os dados da sessão de login 
    if(!isset($_SESSION['login']) == true ){
-       echo "aqui doido";
        logout();
-    echo "<script type='text/javascript'>location.href ='../Telas/tela_Login.php'</script>";
+       echo "<script type='text/javascript'>location.href ='../Telas/tela_Login.php'</script>";
    
     }
    $logado = $_SESSION['login'];
