@@ -2,23 +2,21 @@
 
 require_once 'conexaoBD.php';
 
+//Cadastrar Usuário
 function cadastrarUsuario($nome, $login, $senha, $admin) {
     $conn = conexao();
     
     $sql = "INSERT INTO usuarios(nome, login, senha, admin)  VALUES('" .$nome. "','" .$login. "','" . md5($senha) . "','" . $admin . "' )";
    
-    if ($conn->query($sql)){
-        //Javascript para Alertar o usuário que o mesmo foi cadastrado
+    if($conn->query($sql)){
         echo "<script> alert('Usuário cadastrado com sucesso')</script>";
-        //JavaScript para redirecionamento
         echo "<script type='text/javascript'>location.href ='../Telas/redirecionamento.php'</script>"; 
     } 
     
-    else {
+    else{
         //Erro ao se conectar ao banco de dados
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
+        echo "Error: " . $sql . "<br>" . $conn->error;}
+        
     $conn->close();
 }
 
@@ -86,21 +84,17 @@ function excluirUsuario($id){
 }
  
 
-function editarSenha($id) {
-    
-    $conn = conexao();
-   
+function editarSenha($id, $senha) {
+ 
+    $conn = conexao();  
     $sql = "UPDATE usuarios SET  senha='" . md5($senha) . "' WHERE id=" . $id ; 
     $consulta = $conn->query($sql);
     
-    if ($consulta->num_rows > 0){
-        echo "<script> alert('Dados atualizados com sucesso')</script>"; 
-        
-    }
+    if($consulta->num_rows > 0){
+        echo "<script> alert('Dados atualizados com sucesso')</script>"; }
     
-    else {
-        echo "Error: " .$sql. "<br>" .$conn->error;
-    }
+    else{
+        echo "Error: " .$sql. "<br>" .$conn->error;}
     $conn->close();
 }
 

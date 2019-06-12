@@ -7,7 +7,6 @@ if (isset($_POST['editUsuario'])){
     
 }  
 
-
 $id = $_POST['id_usuario'];
 $conn = conexao();
 

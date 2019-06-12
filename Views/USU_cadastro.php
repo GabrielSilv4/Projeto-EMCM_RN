@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>CadastroUsuário</title>
+        <title>Tela_CadastroUsuário</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href='C:/xampp/htdocs/KDCamisas/CSS/EstiloLogin.css'/>
@@ -24,9 +24,12 @@
          
    <?php 
    
+   require_once '../Model/DAO_Usuario.php';
+   require_once '../Controllers/CONT_Usuario.php';
    
-   require_once '../CRUD_Usuario.php';
    if(isset($_POST["cadastrar"])){
+       $Controlador = new USUARIO_CONTROLE();
+       $Controlador->Cadastrar($_POST["nome"],$_POST["login"],$_POST["senha"], $_POST["admin"]);
        
        cadastrarUsuario($_POST["nome"],$_POST["login"],$_POST["senha"], $_POST["admin"]);
     }

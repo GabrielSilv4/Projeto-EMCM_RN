@@ -3,9 +3,9 @@
 function conexao(){
 
     $servidor = "localhost"; 
-    $nomebanco = "projetomc";
+    $nomebanco = "projetoemcm";
     $usuario = "projetomc";
-    $senha = "ufrnemcgs";
+    $senha = "ufrnemcm";
      
     // Criando conexão com o bd
     $conn = new mysqli($servidor, $usuario, $senha, $nomebanco);

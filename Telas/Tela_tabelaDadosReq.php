@@ -1,23 +1,22 @@
 <?php
-require_once '../nbproject_1/pegarDados_Empenhos.php';
-require_once '../login.php';
 
-isLogado();
+require_once '../nbproject/pegarDados_ReqMaterias.php';
+require_once '../Model/login.php';
+
+//isLogado();
 
 function montarResultado() {
-    $dados = getDadosEmp();
+    $dados = getDadosReqMat();
     // Percorre o arquivos de dados do arquivos 
     foreach ($dados["result"]["records"] as $valores) {
         //Monta a tabela
         echo "<tr>";
-        echo "<td>" . $valores["cod_empenho"] . "</td>";
-        echo "<td>" . $valores["ano"] . "</td>";
-        echo "<td>" . $valores["processo"] . "</td>";
-        echo "<td>" . $valores["natureza_despesa"] . "</td>";
-        echo "<td>" . $valores["valor_empenho"] . "</td>";
-        echo "<td>" . $valores["saldo_empenho"] . "</td>";
-        echo "<td>" . $valores["valor_cancelado"] . "</td>";
-        echo "<td>" . $valores["credor"] . "</td>";
+        echo "<td>" . $valores["requisicao"] . "</td>";
+        echo "<td>" . $valores["status"] . "</td>";
+        echo "<td>" . $valores["tipo_requisicao"] . "</td>";
+        echo "<td>" . $valores["unidade_requisitante"] . "</td>";
+        echo "<td>" . $valores["valor"] . "</td>";
+        echo "<td>" . $valores["grupo_material"] . "</td>";
         echo "<td>" . date('Y/m/d', strtotime($valores["data"])) . "</td>";
         echo "</tr>";
     }
@@ -31,25 +30,22 @@ function montarResultado() {
     <script type="text/javascript" src="../Javascript/jquery-latest.js"></script> 
     <script type="text/javascript" src="../Javascript/jquery.tablesorter.js"></script>
 
-    <body>
-
-    </form>
-    <h2>Empenhos</h2>
-    <!-- Botão responsável por pesquisar cada campo da tabela -->
-    <button onclick="pesquisa();">Pesquisa</button>
-
-    <table id="myTable" class="tablesorter" witdh="100%" >
+    <body>   
+    
+    <h2>Requisições de Materiais</h2>
+   
+    <button onclick="pesquisa();"> Pesquisa </button>
+    <!-- <button position="left" onclick="<logout()"> Sair </button> --> 
+    <table id="myTable" class="tablesorter">
         <thead>
             <tr id="linha">
-                <th>Cód. Empenho</th>
-                <th>Ano</th>
-                <th>Processo</th> 
-                <th>Natureza Despesa</th>
-                <th>Valor Empenho</th>
-                <th>Saldo Empenho</th>
-                <th>Valor Cancelado</th>
-                <th>Credor</th>
-                <th>Data</th>
+                <th>Nº Requisição</th>
+                <th>Status</th>
+                <th>Tipo de Requisição</th> 
+                <th>Unidade Requisitante</th>
+                <th>Valor</th>
+                <th>Grupo Material</th>
+                <th>Data </th>
             </tr>
         </thead>
         <tbody>
@@ -84,7 +80,9 @@ function montarResultado() {
                 + "<th><input type='text' id='txtColuna4'/></th>"
                 + "<th><input type='text' id='txtColuna5'/></th>"
                 + "<th><input type='text' id='txtColuna6'/></th>"
-                + "<th><input type='text' id='txtColuna7'/></th>";
+                + "<th><input type='text' id='txtColuna7'/></th>"
+                + "<th><input type='text' id='txtColuna8'/></th>"
+                + "<th><input type='text' id='txtColuna9'/></th>";
 
 
         $(function () {
@@ -107,7 +105,6 @@ function montarResultado() {
     }
 </script>
 
+
 </html>
-
-
 

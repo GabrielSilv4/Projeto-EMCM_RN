@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-        header("location: ./Telas/tela_Login.php");
+        header("location: ./Telas/Tela_login.php");
       
 ?>
 <html>
