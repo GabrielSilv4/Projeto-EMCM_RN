@@ -2,11 +2,8 @@
        require_once '../Model/conexaoBD.php';
        require_once '../Model/DAO_Empenho.php';  
        
-     
-       if(isset($_GET["btn"])){ 
-           echo "aqui";
-           cadastrarEmpenho($_GET["requisicao"], $_GET["descricao"], $_GET["empenho"], $_GET["ano"]);
-           echo "aqui2";
+       if(isset($_POST["btn"])){
+           cadastrarEmpenho($_POST["requisicao"], $_POST["descricao"], $_POST["empenho"], $_POST["ano"]);
         } 
 ?>
 
@@ -21,7 +18,7 @@
     </head>
     <body>
       
-        <form method="get" action="EMP_cadastrarEmpenho.php">
+        <form method="post" action="">
            
          <div class="container">  
             <br><br><br>
@@ -29,22 +26,22 @@
             
             <div class="form-group">
                 <label for="empenho">Nº Empenho: </label>
-                <input type="number" class="form-control" id="empenho">
+                <input type="number" class="form-control" name="empenho">
             </div>
             
             <div class="form-group">
                 <label for="descricao">Descrição: </label>
-                <input type="text" class="form-control" id="descricao">
+                <input type="text" class="form-control" name="descricao">
             </div>
             
             <div class="form-group">
                 <label for="ano">Ano: </label>
-                <input type="number" class="form-control" id="ano">
+                <input type="number" class="form-control" name="ano">
             </div>
             
             <div class="form-group">
                 <label for="requisicao">Nº Requisição: </label>
-                <input type="text" class="form-control" id="requisicao" value="<?php echo $_POST["req"] ?>" readonly="true"/> 
+                <input type="text" class="form-control" name="requisicao" value="<?php echo $_POST["req"] ?>" readonly="true"/> 
             </div>
             
             <button type="submit" name="btn" class="btn btn-default">Cadastrar</button>
